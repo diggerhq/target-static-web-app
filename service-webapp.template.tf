@@ -206,7 +206,6 @@ resource "aws_s3_bucket_policy" "{{service_name}}_website_root_bucket_policy" {
       ],
       "Resource": [
         "${aws_s3_bucket.{{service_name}}_website_root.arn}/*",
-        "${aws_s3_bucket.{{service_name}}_website_root.arn}"
       ]
     }
   ]
