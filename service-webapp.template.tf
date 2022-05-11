@@ -2,7 +2,7 @@
 {% if service_type == "webapp" %}
 
 locals {
-  {{service_name}}_website_domain = "{{environment}}-{{service_name}}.{{environment_config.hostname}}"
+  {{service_name}}_website_domain = "{{website_domain}}.{{environment_config.hostname}}"
   {{service_name}}_dggr_website_domain = "{{app_name}}-{{environment}}-{{service_name}}.{{environment_config.dggr_hostname}}"
 }
 
@@ -55,8 +55,6 @@ resource "aws_s3_bucket_website_configuration" "{{service_name}}_website_root_we
     key = "index.html"
   }
 }
-
-
 
 resource "aws_s3_bucket_acl" "{{service_name}}_website_root_acl" {
   bucket = aws_s3_bucket.{{service_name}}_website_root.id
