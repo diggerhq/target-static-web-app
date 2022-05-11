@@ -189,7 +189,7 @@ resource "aws_cloudfront_distribution" "{{service_name}}_website_cdn_root" {
 {% endif %}
 
 # Creates policy to allow public access to the S3 bucket
-resource "aws_s3_bucket_policy" "{{service_name}}_update_website_root_bucket_policy" {
+resource "aws_s3_bucket_policy" "{{service_name}}_website_root_bucket_policy" {
   bucket = aws_s3_bucket.{{service_name}}_website_root.id
 
   policy = <<POLICY

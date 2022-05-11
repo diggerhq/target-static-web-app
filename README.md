@@ -27,3 +27,15 @@ template parameters:
         },
     },
 }
+
+terraform resources to be created:
+
+resource "aws_s3_bucket" "{{service_name}}_website_logs"
+resource "aws_s3_bucket_acl" "{{service_name}}_website_logs_acl"
+resource "aws_s3_bucket" "{{service_name}}_website_root"
+resource "aws_s3_bucket_logging" "{{service_name}}_website_root_logging"
+resource "aws_s3_bucket_acl" "{{service_name}}_website_root_acl"
+resource "aws_cloudfront_distribution" "{{service_name}}_website_cdn_root"
+resource "aws_route53_record" "{{service_name}}_website_cdn_root_record"
+resource "aws_route53_record" "{{service_name}}_dggr_website_cdn_root_record"
+resource "aws_s3_bucket_policy" "{{service_name}}_update_website_root_bucket_policy"
