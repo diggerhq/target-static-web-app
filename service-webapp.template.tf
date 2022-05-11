@@ -76,7 +76,7 @@ resource "aws_cloudfront_distribution" "{{service_name}}_website_cdn_root" {
 
   origin {
     origin_id   = "origin-bucket-${aws_s3_bucket.{{service_name}}_website_root.id}"
-    domain_name = aws_s3_bucket_website_configuration.{{service_name}}_website_root_website.bucket_regional_domain_name
+    domain_name = aws_s3_bucket.{{service_name}}_website_root.bucket_regional_domain_name
 
     custom_origin_config {
       origin_protocol_policy = "http-only"
